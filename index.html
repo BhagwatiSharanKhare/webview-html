@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0901)https://mail-attachment.googleusercontent.com/attachment/u/6/?ui=2&ik=5dd85c48ce&attid=0.2&permmsgid=msg-f:1693096691145840915&th=177f16785e231913&view=att&disp=inline&realattid=f_klrkjh0x0&saddbat=ANGjdJ9Qdp6c2v-XyNI7-7jYJAWafJD4QVpbEtOZNqcc7W0U2N8QjSX2oNrNTArlRNqGBbpw0TgiqlRoQ3YQkm6lGImVXHqWu-VFhqaR1agOPjsAMe8rZ8UX6kbZuQqkeSyBf-HtXExG-fH9QWST7OL8vNFVaOAR8EL5OBaA5s7E0RWx6lEiF5EYjdcjSbMhm27sxnUjClS4VZi6yrgFUWU45YjrIixo9e8WNfoXB566TSEqkTfnBqiJrXruNHlCndffKWNxEt2NMR51KmxL5LkU5IBknCwChZYM3dViY4Df7D4olQpT-qfU71c2ngQaU6h2rTieWjXwxHVbmzb1GXlYO1UIWhdVGEf8mVXAgHZgrRTXA-SfAkYjC3_RSeymNFyylifpOoJvlfLnbOzuwUnXVKb0A6CNJvxHIyWyGCiGfnJztj2U8GGSPLL1I-QYA6mihjKneq648IV6PXPaoF0t_ceaqv7_MeNAUuUSdz8RcGtWhqlGVe9a31dbOi69ajQBuvijsq48L4cEY33ISFPcXPTRFzG3dol5XsSkBlU1zljyHPv9X0TW1tE7sg0DnhFMFY8NxRZUw_UxXNEOHr3A_aQ4MNeLe-ekuOrTmT_ZcSxfUQf9Kws_PUnYcJTUxAvwFjnOVY0SXB4VPuHgKD1_QlWXsNNBuufdhFtdz8CMdQaO1Hr7xd70ijGmrfc -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #1d355e;
+      width: 309px;
+      margin-left: 10px;
+      height: 30px;
+
+    }
+
+    li {
+      text-align: center;
+      padding-top: 2px;
+      color: white;
+    }
+
+    html {
+      margin-top: -23px;
+      padding-top: 0px;
+    }
+
+    .btn:hover {
+      background-color: #1d355e;
+    }
+  </style>
+</head>
+
+<body>
+  ​
+  <div>
+    <ul>
+      <li>Contact Us</li>
+    </ul>
+    <div>
+      <form>
+        ​
+        <div>
+
+          <label style="margin-left:10px"><strong>User ID</strong> (optional)</label><br>
+          <input type="text" style="margin-left:10px;width:309px;resize:none" name="user_id" rows="6" cols="60" required><br>
+          <label style="margin-left:10px;margin-top:10px"><strong>Cart ID</strong></label><br>
+          <input type="text" style="margin-left:10px;width:309px;resize:none" name="cart_id" rows="6" cols="60" required><br>
+        </div>
+        <button type="submit" style="margin-top: 0px; margin-left:219px; width: 100px; resize:none" class="btn btn-outline-dark" onclick="getval()">Submit</button>
+
+      </form>
+      ​
+
+
+      ​
+    </div>
+  </div>
+  ​
+  ​
+  ​
+  <script>
+    users_id = document.getElementById('usr_id')
+    carts_id = document.getElementById('cart_id')
+    console.log(input_query)
+
+    function getval() {
+      var user_id = users_id.value
+      var cart_id = cart_id.value
+      validate(user_id, cart_id)
+
+
+      if (window.parent) {
+        let message = "{userquery: " + user_id + "_" + cart_id + ", api_name:userqueryapi}";
+        window.parent.postMessage(`http://haptik-webview//perform-action?action=close&message=${message}&message_type=0`, '*');
+      }
+    }
+
+    function validate(user, cart) {
+      if (user == "" || cart == "") {
+        alert("Both the fields are required.");
+        return false;
+      }
+
+    }
+
+    function closeWebview() {
+      window.parent.postMessage(`http://haptik-webview//perform-action?action=close`, '*');
+    }
+  </script>
+  ​
+</body>
+​
+
+</html>
